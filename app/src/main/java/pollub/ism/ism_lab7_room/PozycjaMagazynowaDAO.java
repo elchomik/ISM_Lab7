@@ -9,7 +9,7 @@ import androidx.room.Update;
 public interface PozycjaMagazynowaDAO {
 
     @Insert
-    public void insert(PozycjaMagazynowa pozycjaMagazynowa);
+    void insert(PozycjaMagazynowa pozycjaMagazynowa);
 
     @Update
     void update(PozycjaMagazynowa pozycjaMagazynowa);

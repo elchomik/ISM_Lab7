@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private String wybraneWarzywoNazwa=null;
     private Integer wybraneWarzywoIlosc=null;
 
-    public enum OperacjaMagazynowa{ SKLADUJ, WYDAJ};
+    public enum OperacjaMagazynowa{ SKLADUJ, WYDAJ}
 
     public BazaMagazynowa bazaDanych;
 
@@ -46,19 +46,9 @@ public class MainActivity extends AppCompatActivity {
         adapter=ArrayAdapter.createFromResource(this,R.array.Asortyment, android.R.layout.simple_dropdown_item_1line);
         binding.spinner.setAdapter(adapter);
 
-        binding.przyciskSkladuj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                zmienStan(OperacjaMagazynowa.SKLADUJ);
-            }
-        });
+        binding.przyciskSkladuj.setOnClickListener(v -> zmienStan(OperacjaMagazynowa.SKLADUJ));
 
-        binding.przyciskWydaj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                zmienStan(OperacjaMagazynowa.WYDAJ);
-            }
-        });
+        binding.przyciskWydaj.setOnClickListener(v -> zmienStan(OperacjaMagazynowa.WYDAJ));
 
         binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -82,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void zmienStan(OperacjaMagazynowa operacjaMagazynowa){
-        Integer zmianaIlosci=null,nowaIlosc=null;
+        Integer zmianaIlosci,nowaIlosc=null;
 
         try{
             zmianaIlosci=Integer.parseInt(binding.edycjaIlosc.getText().toString());
